@@ -12,7 +12,7 @@ function generate(){
 
     document.getElementById("display").value = password;
 
-    document.getElementById("lastNums").innerHTML += password + "<br />";
+    document.getElementById("lastPass").innerHTML += password + "<br >";
 
 }
 
@@ -29,6 +29,7 @@ document.getElementById("slider").oninput = function(){
 
 }
 
+//function to copy password to clipboard
 function copyPassword(){
 
     document.getElementById("display").select();
