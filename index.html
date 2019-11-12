@@ -25,30 +25,21 @@
 
                 <div class="content">
                     <h4>Random Password Generator</h4>
-                    <br />
-                    <input type="text" id="display">
-                    <br >
-                    <label for="Password">Number of characters (8-128):</label>
-                    <br>
-                      <input type="number" id="number" name="number" min="8" max="128">
                     
-                    <br>
-                    <button onclick="generate()">Generate</button>
-                    <button onclick="copyPassword()">Copy to Clipboard</button>
-                    
-                </div>
+                    How many characters? <input type="number" id="charNum" value="30" min="8" max="128" /><br />
+Number: <input type="checkbox" id="num"/>
+Symbol: <input type="checkbox" id="sym"/>
+Lower case: <input type ="checkbox" id="low" />
+Upper case: <input type ="checkbox" id="upp">
+<button id="submit">Submit</button><br />
+Your Password: <input type="text" id="myPw" size="80"/>
+<button onclick="myFunction()">Copy text</button>
 
-                <div class="previous_passwords">
-                    <b>Previously Generated Passwords</b>
-                    <br >
-                    <div id="lastPass"></div>
-                </div>
 
-            </div>
 
         </div>
 
     </div>
-    <script src="script.js"></script>
+    <script src="./pw.js"></script>
 </body>
 </html>
