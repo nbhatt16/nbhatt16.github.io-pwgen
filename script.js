@@ -1,37 +1,37 @@
-function generate(){
+var char = 'abcdefghijklmnopqrstuvwxyz';
+var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var num = '0123456789';
+var sym = '!@#$%^&*=-_';
 
-    var complexity = document.getElementById("number").value;
+var charNum = document.getElementById("charNum");
+var lowBox = document.getElementById("low");
+var uppBox = document.getElementById("upp");
+var numBox = document.getElementById("num");
+var symBox = document.getElementById("sym");
+var submit = document.getElementById("submit");
+var yourPw = document.getElementById("yourPw");
 
-    var values = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
+submit.addEventListener("click",function(e){
+    var characters = char;
+    (lowBox.checked) ? characters += low : '';
+    (uppBox.checked) ? characters += upp : '';
+    (numBox.checked) ? characters += num : '';
+    (symBox.checked) ? characters += sym : '';
+    myPw.value = password(charNum.value, characters);
+});
 
-    var password = "";
-
-    for(var i = 1; i <= complexity; i++){
-        password = password + values.charAt(Math.floor(Math.random() * Math.floor(values.length - 1)));
+function password(l,characters){
+		var pwd = '';
+    for(var i = 0; i<l; i++){
+    		pwd += characters.charAt(Math.floor(Math.random() * characters.length));
     }
-
-    document.getElementById("display").value = password;
-
-    document.getElementById("lastPass").innerHTML += password + "<br >";
-
+    return pwd;
 }
-
-document.getElementById("number").oninput = function(){
-
-    if(document.getElementById("number").value > 0){
-        document.getElementById("length").innerHTML = "Length: " + document.getElementById("number").value;
-    }
-    else{
-        document.getElementById("length").innerHTML = "Length: 1";
-    }
-
-}
-function copyPassword(){
-
-    document.getElementById("display").select();
-
-    document.execCommand("Copy");
-
-    alert("Password copied!");
-
-}
+ 
+function myFunction() {
+    var copyText = document.getElementById("myPw");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);
+  }  
